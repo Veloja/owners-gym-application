@@ -1,0 +1,35 @@
+<html>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-condensed table-hover table-striped">
+                <thead class="bg-primary">
+                    <tr>
+                        <th>Name</th>
+                        <th>Last name</th>
+                        <th>Email</th>
+                        <th>Gender</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="trainer in trainers | filter : filter">
+                        <td>
+                            <a ng-href="#!/editTrainer/{{trainer.id}}">{{trainer.name}}</a>
+                        </td>
+                        <td>{{trainer.lastName}}</td>
+                        <td>{{trainer.email}}</td>
+                        <td>{{trainer.gender}}</td>
+                        <td>
+                            <button class="btn btn-oultine">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</html>

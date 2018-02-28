@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.logo {
+    width: 69px;
+    height: 40px;
+    border-radius: 10px;
+} 
+thead {
+    color: #fff;
+}
+.form-control.ng-invalid.ng-touched {
+    border: 2px solid red;
+}
+
