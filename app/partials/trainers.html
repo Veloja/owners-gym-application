@@ -1,5 +1,4 @@
-<html>
-<div class="container">
+<div class="container" ng-init="getTrainers()">
     <div class="row">
         <div class="col-12">
             <table class="table table-condensed table-hover table-striped">
@@ -20,7 +19,7 @@
                             {{trainer.id}}
                         </td>
                         <td>
-                            <a ng-href="#!/editTrainer/{{trainer.id}}">{{trainer.name}}</a>
+                            <a ng-href="#!/trainers/editTrainer/{{trainer.id}}">{{trainer.name}}</a>
                         </td>
                         <td>{{trainer.lastName}}</td>
                         <td>{{trainer.email}}</td>
@@ -37,5 +36,3 @@
         </div>
     </div>
 </div>
-
-</html>

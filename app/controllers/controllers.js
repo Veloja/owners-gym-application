@@ -26,13 +26,27 @@ app.controller('AddTrainerController', function ($scope, gymService) {
 
 });
 
-app.controller('TrainersController', function ($scope, gymService) {
+app.controller('TrainersController', function ($scope, gymService, $routeParams, $location) {
 
     $scope.trainers = gymService.getTrainers();
+
+    // this probably wont work if you dont add ng-init="getTrainers()" in view
+    // $scope.getTrainers = function(){
+    //     $http.get('/api/trainers').success(function(response){
+    //         $scope.trainers = response;
+    //     });
+    // }
 
     $scope.deleteTrainer = function (index) {
         $scope.trainers.splice(index, 1);
     }
+
+    // $scope.deleteTrainer = function(id){
+    //     // var id = $routeParams.id; maybe we dont need this, because of the id we get from view
+    //     $http.delete('/api/trainers/' + id).success(function(response){
+    //         window.location.href = "/trainers";
+    //     });
+    // }
 
 });
 
@@ -68,7 +82,7 @@ app.controller('AddClientController', function ($scope, gymService) {
         var max = 0;
         for (var i = 0; i < $scope.clients.length; i++) {
             var currentClient = $scope.clients[i];
-            if (currentCleint.id > max) {
+            if (currentClient.id > max) {
                 max = currentClient.id;
             }
         }
