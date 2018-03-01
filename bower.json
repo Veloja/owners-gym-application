@@ -6,6 +6,7 @@
   "description": "",
   "main": "",
   "license": "MIT",
+  "home": "",
   "ignore": [
     "**/.*",
     "node_modules",

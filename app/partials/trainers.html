@@ -5,23 +5,29 @@
             <table class="table table-condensed table-hover table-striped">
                 <thead class="bg-primary">
                     <tr>
+                        <th>ID</th>
                         <th>Name</th>
                         <th>Last name</th>
                         <th>Email</th>
                         <th>Gender</th>
+                        <th>Address</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="trainer in trainers | filter : filter">
+                    <tr ng-repeat="trainer in trainers | filter : filter track by $index">
+                        <td>
+                            {{trainer.id}}
+                        </td>
                         <td>
                             <a ng-href="#!/editTrainer/{{trainer.id}}">{{trainer.name}}</a>
                         </td>
                         <td>{{trainer.lastName}}</td>
                         <td>{{trainer.email}}</td>
                         <td>{{trainer.gender}}</td>
+                        <td>{{trainer.address}}</td>
                         <td>
-                            <button class="btn btn-oultine">
+                            <button ng-click="deleteTrainer($index)" class="btn btn-oultine">
                                 <i class="fas fa-trash-alt"></i>
                             </button>
                         </td>

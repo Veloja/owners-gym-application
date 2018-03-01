@@ -33,4 +33,37 @@ app.service('gymService', function () {
         }
     ];
 
+    this.getClients = function () {
+        return clients;
+    };
+
+
+    this.getClientByID = function (clientID) {
+        for (var i = 0; i < clients.length; i++) {
+            if (clients[i].id === clientID) {
+                return clients[i];
+            }
+        }
+        return null;
+    }
+
+    var clients = [
+        {
+            id: 1,
+            name: "Bratko",
+            lastName: "Hevery",
+            gender: "male",
+            email: "misko@gmail.com",
+            address: "11 Ocean View St."
+        },
+        {
+            id: 2,
+            name: "Matko",
+            lastName: "Wahlin",
+            gender: "female",
+            email: "dan@gmail.com",
+            address: "12 Ocean View St."
+        }
+    ];
+
 });

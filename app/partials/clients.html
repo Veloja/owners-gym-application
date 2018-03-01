@@ -1,1 +1,40 @@
-<h1>HELOO CLIENT</h1>
+<html>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-condensed table-hover table-striped">
+                <thead class="bg-primary">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Last name</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Gender</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="client in clients | filter : filter track by $index">
+                        <td>
+                            {{client.id}}
+                        </td>
+                        <td>
+                            <a ng-href="#!/editClient/{{client.id}}">{{client.name}}</a>
+                        </td>
+                        <td>{{client.lastName}}</td>
+                        <td>{{client.email}}</td>
+                        <td>{{client.gender}}</td>
+                        <td>
+                            <button ng-click="deleteClient($index)" class="btn btn-oultine">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</html>

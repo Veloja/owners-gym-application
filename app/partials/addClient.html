@@ -1,49 +1,49 @@
 <html>
 
 <body>
-    <form name="trainerForm" class="container" novalidate>
+    <form name="clientForm" class="container" novalidate>
         <div class="form-group">
-            <label for="name">Trainer's name:</label>
-            <input ng-model="newTrainer.name" 
+            <label for="name">Client's name:</label>
+            <input ng-model="newClient.name" 
                    minlength="3"
                    type="text" 
                    class="form-control" 
                    name="name" 
                    ng-required="true">
-            <small ng-if="trainerForm.name.$touched && trainerForm.name.$invalid">First name required.</small>
-            <small ng-if="trainerForm.name.$error.minlength">Name is too short.</small>
+            <small ng-if="clientForm.name.$touched && clientForm.name.$invalid">First name required.</small>
+            <small ng-if="clientForm.name.$error.minlength">Name is too short.</small>
         </div>
         <div class="form-group">
             <label for="lastName">Tranier's last name:</label>
-            <input ng-model="newTrainer.lastName" 
+            <input ng-model="newClient.lastName" 
                    minlength="3" type="text" 
                    class="form-control" 
                    name="lastName" 
                    ng-required="true">
-            <small ng-if="trainerForm.lastName.$touched && trainerForm.lastName.$invalid">Last name required.</small>
-            <small ng-if="trainerForm.lastName.$error.minlength">Last name is too short.</small>
+            <small ng-if="clientForm.lastName.$touched && clientForm.lastName.$invalid">Last name required.</small>
+            <small ng-if="clientForm.lastName.$error.minlength">Last name is too short.</small>
         </div>
         <div class="form-group">
-            <label for="email">Trainer's email:</label>
-            <input ng-model="newTrainer.email" 
+            <label for="email">Client's email:</label>
+            <input ng-model="newClient.email" 
                    type="email" 
                    class="form-control" 
                    name="email" 
                    ng-required="true">
-            <small ng-if="trainerForm.email.$touched && trainerForm.email.$invalid">Enter a valid email.</small>
+            <small ng-if="clientForm.email.$touched && clientForm.email.$invalid">Enter a valid email.</small>
         </div>
         <div class="form-group">
-            <label for="address">Trainer's address:</label>
-            <input ng-model="newTrainer.address" 
+            <label for="address">Client's address:</label>
+            <input ng-model="newClient.address" 
                    type="text" 
                    class="form-control" 
                    name="address" 
                    ng-required="true">
-            <small ng-if="trainerForm.address.$touched && trainerForm.address.$invalid">Enter address.</small>
+            <small ng-if="clientForm.address.$touched && clientForm.address.$invalid">Enter address.</small>
         </div>
         <div class="form-check">
             <label class="form-check-label">
-                <input ng-model="newTrainer.gender" 
+                <input ng-model="newClient.gender" 
                        class="form-check-input" 
                        type="radio" 
                        value="male" 
@@ -52,19 +52,19 @@
         </div>
         <div class="form-check">
             <label class="form-check-label">
-                <input ng-model="newTrainer.gender" 
+                <input ng-model="newClient.gender" 
                        class="form-check-input" 
                        type="radio" 
                        value="female" 
                        ng-required="true"> Female:
             </label>
-            <small ng-if="trainerForm.gender.female.$invalid">Gender field required.</small>
+            <small ng-if="clientForm.gender.female.$invalid">Gender field required.</small>
         </div>
         <div>
             <button type="submit" 
-                    ng-disabled="trainerForm.$invalid" 
-                    ng-click="addNewTrainer(newTrainer)" 
-                    class="btn btn-success">Add trainer
+                    ng-disabled="clientForm.$invalid" 
+                    ng-click="addNewClient(newClient)" 
+                    class="btn btn-success">Add client
             </button>
         </div>
     </form>

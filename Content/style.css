@@ -14,4 +14,7 @@ thead {
 .form-control.ng-invalid.ng-touched {
     border: 2px solid red;
 }
+.checkbox {
+    border: 1px solid red;
+}
 

@@ -1,42 +1,42 @@
 <html>
 
 <body>
-    <form name="trainerForm" class="container" novalidate>
+    <form name="clientForm" class="container" novalidate>
             EDIT:
         <div class="form-group has-success">
             <label class="form-control-label" for="name">Trainer's name:</label>
-            <input ng-model="trainer.name" type="text" class="form-control" name="name" ng-required="true">
-            <div ng-show="trainerForm.name.$touched && trainerForm.name.$invalid">
+            <input ng-model="client.name" type="text" class="form-control" name="name" ng-required="true">
+            <div ng-show="clientForm.name.$touched && clientForm.name.$invalid">
                 <small class="form-text text-muted">First name required.</small>
             </div>
         </div>
         <div class="form-group has-success">
             <label class="form-control-label" for="lastName">Tranier's last name:</label>
-            <input ng-model="trainer.lastName" type="text" class="form-control" name="lastName" ng-required="true">
-            <div ng-show="trainerForm.lastName.$touched && trainerForm.lastName.$invalid">
+            <input ng-model="client.lastName" type="text" class="form-control" name="lastName" ng-required="true">
+            <div ng-show="clientForm.lastName.$touched && clientForm.lastName.$invalid">
                 <small class="form-text text-muted">Last name required.</small>
             </div>
         </div>
         <div class="form-group has-success">
             <label class="form-control-label" for="email">Trainer's email:</label>
-            <input ng-model="trainer.email" type="email" class="form-control" name="email" ng-required="true">
-            <div ng-show="trainerForm.email.$touched && trainerForm.email.$invalid">
+            <input ng-model="client.email" type="email" class="form-control" name="email" ng-required="true">
+            <div ng-show="clientForm.email.$touched && clientForm.email.$invalid">
                 <small class="form-text text-muted">Enter a valid email.</small>
             </div>
         </div>
         <form class="form-inline">
             <div class="form-check">
-                <label ng-model="trainer.gender" class="form-check-label">
+                <label ng-model="client.gender" class="form-check-label">
                     <input class="form-check-input" type="radio" name="male" value="male" 
-                           ng-model="trainer.gender"> Male:
+                           ng-model="client.gender"> Male:
                 </label>
             </div>
             <div class="form-check">
                 <label class="form-check-label">
-                    <input ng-model="trainer.gender" class="form-check-input" type="radio"
+                    <input ng-model="client.gender" class="form-check-input" type="radio"
                         name="female" value="female" ng-required="true"> Female:
                 </label>
-                <div ng-show="trainerForm.male.$touched && trainerForm.male.$invalid || trainerForm.female.$touched && trainerForm.male.$invalid">
+                <div ng-show="clientForm.male.$touched && clientForm.male.$invalid || clientForm.female.$touched && clientForm.male.$invalid">
                     <small class="form-text text-muted">Gender field required.</small>
                 </div>
             </div>

@@ -26,5 +26,15 @@ app.config(function ($routeProvider) {
             controller: 'AddTrainerController',
             templateUrl: '/app/partials/addTrainer.html'
         })
+        .when('/addClient',
+        {
+            controller: 'AddClientController',
+            templateUrl: '/app/partials/addClient.html'
+        })
+        .when('/editClient/:clientID',
+        {
+            controller: 'EditClientController',
+            templateUrl: '/app/partials/editClient.html'
+        })
         .otherwise({ redirectTo: '/trainers' });
 });
