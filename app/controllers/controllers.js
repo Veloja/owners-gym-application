@@ -1,10 +1,24 @@
-app.controller('AddTrainerController', function ($scope, gymService) {
+app.controller('TrainersController', function ($scope, gymService, $routeParams, $location) {
+
+    // this probably wont work if you dont add ng-init="getTrainers()" in view
+    // $scope.getTrainers = function(){
+    //     $http.get('/api/trainers').success(function(response){
+    //         $scope.trainers = response;
+    //     });
+    // }
+
+    // $scope.deleteTrainer = function(id){
+    //     // var id = $routeParams.id; maybe we dont need this, because of the id we get from view
+    //     $http.delete('/api/trainers/' + id).success(function(response){
+    //         window.location.href = "/trainers";
+    //     });
+    // }
 
     $scope.trainers = gymService.getTrainers();
 
     $scope.newTrainer = {};
 
-    function getNextId() {
+    function getNextIdforTrainer() {
         var max = 0;
         for (var i = 0; i < $scope.trainers.length; i++) {
             var currentTrainer = $scope.trainers[i];
@@ -17,40 +31,21 @@ app.controller('AddTrainerController', function ($scope, gymService) {
 
     $scope.addNewTrainer = function (newTrainer) {
 
-        newTrainer.id = getNextId();
+        newTrainer.id = getNextIdforTrainer();
         $scope.trainers.push(newTrainer);
 
         $scope.newTrainer = {};
+
+        $location.path('/trainers');
     }
-
-
-});
-
-app.controller('TrainersController', function ($scope, gymService, $routeParams, $location) {
-
-    $scope.trainers = gymService.getTrainers();
-
-    // this probably wont work if you dont add ng-init="getTrainers()" in view
-    // $scope.getTrainers = function(){
-    //     $http.get('/api/trainers').success(function(response){
-    //         $scope.trainers = response;
-    //     });
-    // }
 
     $scope.deleteTrainer = function (index) {
         $scope.trainers.splice(index, 1);
     }
 
-    // $scope.deleteTrainer = function(id){
-    //     // var id = $routeParams.id; maybe we dont need this, because of the id we get from view
-    //     $http.delete('/api/trainers/' + id).success(function(response){
-    //         window.location.href = "/trainers";
-    //     });
-    // }
-
-});
-
-app.controller('EditTrainerController', function ($scope, $routeParams, gymService) {
+    $scope.editTrainer = function(){
+        $location.path('/trainers'); 
+    }
 
     $scope.trainer = null;
 
@@ -65,20 +60,20 @@ app.controller('EditTrainerController', function ($scope, $routeParams, gymServi
         $scope.trainer = gymService.getTrainerByID(trainerID);
     }
 
-});
-
-app.controller('AddClientController', function ($scope, gymService) {
+    // ------------ CLIENTS -------------- //    
 
     $scope.clients = gymService.getClients();
 
     $scope.addNewClient = function (newClient) {
-        newClient.id = getNextId();
-        $scope.trainers.push(newClient);
+        newClient.id = getNextIdforClient();
+        $scope.clients.push(newClient);
 
         $scope.newClient = {};
+
+        $location.path('/clients');
     }
 
-    function getNextId() {
+    function getNextIdforClient() {
         var max = 0;
         for (var i = 0; i < $scope.clients.length; i++) {
             var currentClient = $scope.clients[i];
@@ -89,23 +84,21 @@ app.controller('AddClientController', function ($scope, gymService) {
         return max + 1;
     }
 
-});
+    $scope.editClient = function(){
+        $location.path('/clients'); 
+    }
 
-app.controller('ClientsController', function($scope, gymService){
-    $scope.clients = gymService.getClients();
-});
-
-app.controller('EditClientController', function($scope, gymService, $routeParams){
     $scope.client = null;
 
-    //uzimamo trenerovID iz url parametra        
+    //uzimamo clientovID iz url parametra        
     var clientID = 0;
     if (($routeParams.clientID !== null)) {
         clientID = parseInt($routeParams.clientID);
     }
 
-    //ako smo uspesno uzeli trenerovID, dovlacimo izabranog trenera iz servisa
+    //ako smo uspesno uzeli clijentovID, dovlacimo izabranog clijenta iz servisa
     if (clientID !== 0) {
         $scope.client = gymService.getClientByID(clientID);
     }
+
 });

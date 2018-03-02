@@ -18,27 +18,27 @@ app.config(function ($routeProvider) {
             })
         .when('/trainers/editTrainer/:trainerID',
             {
-                controller: 'EditTrainerController',
+                controller: 'TrainersController',
                 templateUrl: '/app/partials/editTrainer.html'
             })
         .when('/addTrainer',
             {
-                controller: 'AddTrainerController',
+                controller: 'TrainersController',
                 templateUrl: '/app/partials/addTrainer.html'
             })
         .when('/clients',
             {
-                controller: 'ClientsController',
+                controller: 'TrainersController',
                 templateUrl: '/app/partials/clients.html'
             })
         .when('/clients/editClient/:clientID',
             {
-                controller: 'EditClientController',
+                controller: 'TrainersController',
                 templateUrl: '/app/partials/editClient.html'
             })
         .when('/addClient',
             {
-                controller: 'AddClientController',
+                controller: 'TrainersController',
                 templateUrl: '/app/partials/addClient.html'
             })
         .otherwise({ redirectTo: '/trainers' });
